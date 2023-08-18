@@ -2,9 +2,20 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { crimson_font, cormorant_font, caveat_font } from "..";
 import Navbar from "./navbar";
+import { api } from "~/utils/api";
 
 export default function LandPage() {
   const [fadeIn, setFadeIn] = useState(true);
+
+  const { data: posts } = api.post.getAllPosts.useQuery();
+
+  const formattedTime = (date: Date) => {
+    return new Date(date).toLocaleDateString([], {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    });
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,25 +56,42 @@ export default function LandPage() {
         <div className="mx-auto flex w-10/12 flex-col space-y-14 lg:w-2/3">
           <div className="text-3xl">Latest Episodes</div>
           <div className="flex flex-col items-center max-lg:space-y-14 lg:flex-row lg:space-x-10">
-            <div className="flex flex-col space-y-3">
-              <div className="h-64 w-96 bg-blue-300"></div>
-              <div className={`mx-auto ${crimson_font}`}>May 29, 2019</div>
-              <div className="mx-auto text-2xl font-medium hover:cursor-pointer hover:underline">
-                Episode 06: Solo Travel or Bust
+            <div className="m-10 flex w-96 flex-col space-y-3">
+              {/* <div className={`h-64 w-96 bg-green-300`}></div> */}
+              <div>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg"
+                  alt="smiling-girl-image"
+                  width="600"
+                  height="600"
+                />
               </div>
-              {/* <div className="mx-auto w-fit text-sm font-light">
-            Exploring this big wide world on your own.
-          </div> */}
+              <div></div>
+              <div className={`mx-auto ${crimson_font}`}>
+                {posts && formattedTime(posts[0]?.createdAt!)}
+              </div>
+              <div className="mx-auto text-xl font-medium hover:cursor-pointer hover:underline">
+                {posts && posts[0]?.title}
+              </div>
             </div>
-            <div className="flex flex-col space-y-3">
-              <div className="h-64 w-96 bg-purple-300"></div>
-              <div className={`mx-auto ${crimson_font}`}>May 26, 2019</div>
-              <div className="mx-auto text-2xl font-medium hover:cursor-pointer hover:underline">
-                Episode 05: Thinking about future
+
+            <div className="m-10 flex w-96 flex-col space-y-3">
+              {/* <div className={`h-64 w-96 bg-blue-300`}></div> */}
+              <div>
+                <img
+                  src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
+                  alt="tree-image"
+                  width="600"
+                  height="600"
+                />
               </div>
-              {/* <div className="mx-auto w-fit text-sm font-light">
-            Exploring this big wide world on your own.
-          </div> */}
+
+              <div className={`mx-auto ${crimson_font}`}>
+                {posts && formattedTime(posts[1]?.createdAt!)}
+              </div>
+              <div className="mx-auto text-xl font-medium hover:cursor-pointer hover:underline">
+                {posts && posts[1]?.title}
+              </div>
             </div>
           </div>
         </div>

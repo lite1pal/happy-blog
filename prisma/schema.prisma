@@ -19,6 +19,8 @@ model Example {
 model Post {
     id String @id @default(cuid()) @map("_id")
     content String
+    title String
+    imageUrl String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
