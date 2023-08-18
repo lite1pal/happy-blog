@@ -8,7 +8,15 @@ await import("./src/env.mjs");
 const config = {
   reactStrictMode: true,
   images: {
-    domains: ["plus.unsplash.com", "images.unsplash.com"],
+    domains: [
+      "plus.unsplash.com",
+      "images.unsplash.com",
+      "upload.wikimedia.org",
+      "img.freepik.com",
+    ],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 
   /**

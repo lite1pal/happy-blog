@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { crimson_font, cormorant_font, caveat_font } from "..";
 import Navbar from "./navbar";
 import { api } from "~/utils/api";
+import Image from "next/image";
 
 export default function LandPage() {
   const [fadeIn, setFadeIn] = useState(true);
@@ -59,7 +59,7 @@ export default function LandPage() {
             <div className="m-10 flex w-96 flex-col space-y-3">
               {/* <div className={`h-64 w-96 bg-green-300`}></div> */}
               <div>
-                <img
+                <Image
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg"
                   alt="smiling-girl-image"
                   width="600"
@@ -78,7 +78,7 @@ export default function LandPage() {
             <div className="m-10 flex w-96 flex-col space-y-3">
               {/* <div className={`h-64 w-96 bg-blue-300`}></div> */}
               <div>
-                <img
+                <Image
                   src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=2000"
                   alt="tree-image"
                   width="600"

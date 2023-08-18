@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Navbar from "./navbar";
 import { crimson_font } from "..";
 import { api } from "~/utils/api";
-import Image from "next/image";
 
 export default function Blog() {
   const [fadeIn, setFadeIn] = useState(true);
@@ -13,27 +12,6 @@ export default function Blog() {
       setFadeIn(false);
     }, 50);
   }, []);
-
-  const randomColor = () => {
-    const colors = ["green", "red", "yellow", "orange", "purple", "slate"];
-    const intensity = [
-      "100",
-      "200",
-      "300",
-      "400",
-      "500",
-      "600",
-      "700",
-      "800",
-      "900",
-    ];
-
-    return (
-      colors[Math.floor(Math.random() * 6)] +
-      "-" +
-      intensity[Math.floor(Math.random() * 9)]
-    );
-  };
 
   return (
     <div className={`transition duration-1000 ${fadeIn && "opacity-0"}`}>
@@ -50,7 +28,7 @@ export default function Blog() {
           );
 
           return (
-            <div className="m-10 flex w-96 flex-col space-y-3">
+            <div key={post.id} className="m-10 flex w-96 flex-col space-y-3">
               {/* <Image src={post.imageUrl} alt="image" width={500} height={500} /> */}
 
               <div className={`h-64 w-96 bg-green-300`}></div>

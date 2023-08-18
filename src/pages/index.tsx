@@ -7,7 +7,6 @@ import {
 } from "next/font/google";
 import { useEffect, useState } from "react";
 import LandPage from "./components/landpage";
-import Blog from "./components/blog";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: "300" });
 const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: "500" });

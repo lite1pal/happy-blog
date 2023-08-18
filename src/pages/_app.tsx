@@ -1,7 +1,7 @@
 import { type AppType } from "next/app";
 import { api } from "~/utils/api";
 import "~/styles/globals.css";
-import { Lato, Inter } from "next/font/google";
+import { Lato } from "next/font/google";
 import Script from "next/script";
 
 const lato = Lato({
